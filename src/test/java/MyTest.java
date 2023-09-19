@@ -1,9 +1,12 @@
+import POM.BasePage;
+import POM.SearchBarComponent;
 import api.ApiClient;
 import infra.Account;
 import infra.WrappHttpResponse;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -25,7 +28,7 @@ public class MyTest {
 
     @BeforeEach
     public void setUp() throws IOException {
-        System.setProperty("webdriver.chrome.driver", "/Users/user/IdeaProjects/testing-with-selenium/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.rami-levy.co.il/he");
 
@@ -61,6 +64,21 @@ public class MyTest {
 
         driver.navigate().refresh();
 
+    }
+
+    @Test
+    public void testSearchBarComponent(){
+        SearchBarComponent searchBarComponent = new SearchBarComponent(driver);
+
+        searchBarComponent.executeFullSearchSequence("bamba");
+
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        BasePage
+        Assertions.assertEquals("https://www.rami-levy.co.il/he/online/search?q=bamba", driver.getCurrentUrl());
     }
 
 
