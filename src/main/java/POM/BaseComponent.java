@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class BaseComponent {
 
-    private WebDriver driver;
+    protected WebDriver driver;
     public BaseComponent(WebDriver driver) {
         this.driver = driver;
 
