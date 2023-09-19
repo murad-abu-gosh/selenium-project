@@ -61,10 +61,6 @@ public class MyTest {
 
         driver.navigate().refresh();
 
-
-
-
-
     }
 
 
