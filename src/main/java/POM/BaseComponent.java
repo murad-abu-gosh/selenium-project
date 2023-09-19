@@ -16,7 +16,7 @@ public class BaseComponent {
         this.driver = driver;
 
     }
-    
+
 
     public void setInputValue(String value , By locator) {
         WebElement Input = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -36,6 +36,10 @@ public class BaseComponent {
     public void clickButton(By locator){
         WebElement button = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
         button.click();
+    }
+    public WebElement waitFunction(By ele) {
+        return new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.presenceOfElementLocated(ele));
+
     }
 
 }
