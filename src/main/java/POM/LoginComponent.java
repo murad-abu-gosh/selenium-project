@@ -10,15 +10,19 @@ import java.time.Duration;
 
 public class LoginComponent extends BaseComponent{
 
+    private final By USER_NAME = By.id("login-user");
+
     public LoginComponent(WebDriver driver) {
         super(driver);
 
     }
 
-    public boolean waitUserName(WebDriver driver,String firstName) {
+    public boolean getLoginUserText(String firstName) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        WebElement visibleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text()," + firstName + ")]")));
-        return visibleElement.isDisplayed();
+        WebElement visibleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),"+firstName+")]")));
+        boolean elementIsExcite = visibleElement.isDisplayed();
+
+        return  elementIsExcite;
     }
 
 }

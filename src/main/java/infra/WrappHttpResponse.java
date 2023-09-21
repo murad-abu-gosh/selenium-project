@@ -8,13 +8,13 @@ public class WrappHttpResponse<T> {
     private int status;
     private Map<String, String> responseHeaders;
     private T data;
-//    private JSONObject responJson;
+
     public WrappHttpResponse(int status, Map<String, String> responseHeaders, T data )
     {
         this.status = status;
         this.responseHeaders = responseHeaders;
         this.data = data;
-//        this.responJson = responJson;
+
     }
 
     public int getStatus() {
