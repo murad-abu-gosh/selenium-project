@@ -16,7 +16,7 @@ public abstract class BasePage {
         this.driver = driver;
     }
 
-    public abstract void init(WebDriver driver);
+    public abstract void init();
 
 
     public WebElement waitFunction(By ele) {
