@@ -1,12 +1,12 @@
 package api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import infra.Account;
+import logic.requests.Account;
 import infra.HttpFacade;
 import infra.HttpMethod;
 import infra.WrappHttpResponse;
-import org.json.JSONObject;
-import logic.LoginResponse;
+import logic.requests.Address;
+import logic.response.LoginResponse;
 import java.io.IOException;
 
 public class ApiClient {
@@ -23,6 +23,14 @@ public class ApiClient {
 
         // Send the request
         return HttpFacade.makeHttpRequest( LoginResponse.class, url , HttpMethod.POST ,requestBody);
+    }
+
+    public  static  WrappHttpResponse<Address> add_address (Address address){
+    String url ="https://api-prod.rami-levy.co.il/api/v2/site/clubs/addresses";
+
+        String requestBody = serializeToJson(address);
+        System.out.println("requestBody" + requestBody);
+        return HttpFacade.makeHttpRequest( Address.class, url , HttpMethod.POST ,requestBody);
     }
 
 

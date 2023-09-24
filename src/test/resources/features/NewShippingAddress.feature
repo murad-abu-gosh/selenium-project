@@ -3,7 +3,7 @@ Feature: Add new shipping address using API request and check if the address was
 
     Background:
         Given I have navigated to Rami Levi
-        And  I login with user 'aaaaa@gmail.com' and password 'muradelevation123'
+        When  I login with user 'aaaaa@gmail.com' and password 'muradelevation123'
 
 
     Scenario: Add new shipping address

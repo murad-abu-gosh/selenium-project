@@ -14,6 +14,11 @@ public class LoginComponent extends BaseComponent{
 
     public LoginComponent(WebDriver driver) {
         super(driver);
+        init();
+    }
+
+    @Override
+    public void init() {
 
     }
 
@@ -24,5 +29,6 @@ public class LoginComponent extends BaseComponent{
 
         return  elementIsExcite;
     }
+
 
 }

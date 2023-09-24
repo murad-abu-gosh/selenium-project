@@ -9,13 +9,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class BaseComponent {
+abstract public class BaseComponent {
 
     protected WebDriver driver;
     public BaseComponent(WebDriver driver) {
         this.driver = driver;
 
     }
+    abstract public void init();
 
 
     public void setInputValue(String value , By locator) {

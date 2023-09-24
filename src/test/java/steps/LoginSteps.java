@@ -1,38 +1,20 @@
 package steps;
 
-import POM.LoginComponent;
 import POM.RamiLeviHomePage;
 import api.ApiClient;
 
-import infra.Account;
+import logic.requests.Account;
 import infra.WrappHttpResponse;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import logic.LoginResponse;
-import org.json.JSONObject;
+import logic.response.LoginResponse;
 import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import java.io.IOException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import context.TestContext;
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.time.Duration;
 
 import static net.bytebuddy.matcher.ElementMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -42,17 +24,20 @@ public class LoginSteps {
 
     private  WebDriver driver;
 
+    private TestContext context;
 
+public LoginSteps(TestContext context) {
+    this.context=context;
+    this.driver =context.get("driver");
+}
 
-
-    public LoginSteps(Hooks hooks) {
-        this.driver = hooks.getDriver();
-    }
 
     @Given("I have navigated to Rami Levi")
     public void iHaveNavigatedToRamiLevi() {
         RamiLeviHomePage ramiLeviHomePage = new RamiLeviHomePage(driver);
         ramiLeviHomePage.openStatsPage();
+        context.put("main",ramiLeviHomePage);
+        context.print();
 
     }
     @When("I login with user '{}' and password '{}'")

@@ -1,4 +1,4 @@
-package infra;
+package logic.requests;
 
 public class Account {
 
