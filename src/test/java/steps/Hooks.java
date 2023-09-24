@@ -10,7 +10,7 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/Users/user/IdeaProjects/selenium-advanced-element/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
     }
 
