@@ -17,6 +17,11 @@ public class SearchBarComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public void init() {
+
+    }
+
 
     public void clickShowAllResultsButton(){
         clickButton(testXpath);
@@ -33,11 +38,9 @@ public class SearchBarComponent extends BaseComponent {
 
     }
 
-    private void waitPageLoad(){
+    public void waitPageLoad(){
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(By.id("min-height-product-0")));
     }
-
-
 
 
 }
