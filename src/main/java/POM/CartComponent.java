@@ -18,8 +18,16 @@ public class CartComponent extends BaseComponent{
     private final By emptyCartButton = By.id("remove-cart");
     private final By confirmEmptyCartButton = By.id("delete-cart-btn");
     private final By emptyCartDiv = By.className("empty-cart-main");
+
+    private final By cartBadge = By.xpath("//*[@id=\"onlineCartHeader\"]/div[1]/div[1]/span[1]");
+
     public CartComponent(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public void init() {
+
     }
 
 
@@ -32,17 +40,30 @@ public class CartComponent extends BaseComponent{
     }
 
     public void executeEmptyCartSequence(){
+        if (isCartEmpty()){
+            return;
+        }
         clickEmptyCartButton();
         clickConfirmEmptyCartButton();
     }
 
     public boolean isCartEmpty(){
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(emptyCartDiv));
+        try{
+            new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(emptyCartDiv));
+
+        } catch (org.openqa.selenium.TimeoutException exception){
+            exception.printStackTrace();
+        }
         return !driver.findElements(emptyCartDiv).isEmpty();
     }
 
     public void addItemsToCart(){
         HttpFacade.makeHttpRequest(JSONObject.class, "https://www.rami-levy.co.il/api/v2/cart", HttpMethod.POST, "{\"store\":331,\"isClub\":0,\"supplyAt\":\"2023-09-21T16:22:33.754Z\",\"items\":{\"292\":\"1.00\"},\"meta\":null}");
+    }
+
+    public int getCartItemsCount() {
+        return Integer.parseInt(driver.findElement(cartBadge).getText());
+
     }
 
 
