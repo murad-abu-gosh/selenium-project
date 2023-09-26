@@ -26,4 +26,11 @@ public class TestContext {
         map.put(key,item);
     }
 
+    public void print(){
+        for (String i :map.keySet()){
+            System.out.println(i);
+        }
+    }
+
+
 }

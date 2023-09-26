@@ -1,57 +1,54 @@
 package steps;
 
+
 import POM.LoginComponent;
 import POM.RamiLeviHomePage;
 import api.ApiClient;
 
-import infra.Account;
 import infra.WrappHttpResponse;
+import logic.requests.Account;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import logic.LoginResponse;
-import org.json.JSONObject;
+import logic.response.LoginResponse;
+
 import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import context.TestContext;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.time.Duration;
 
-import static net.bytebuddy.matcher.ElementMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import java.io.IOException;
+
+
+import logic.requests.Account;
+
 
 
 public class LoginSteps {
 
     private  WebDriver driver;
 
+    private TestContext context;
+    private RamiLeviHomePage homePage;
 
+public LoginSteps(TestContext context) {
+    this.context=context;
+    this.driver =context.get("driver");
+}
 
-
-    public LoginSteps(Hooks hooks) {
-        this.driver = hooks.getDriver();
-    }
 
     @Given("I have navigated to Rami Levi")
     public void iHaveNavigatedToRamiLevi() {
         RamiLeviHomePage ramiLeviHomePage = new RamiLeviHomePage(driver);
         ramiLeviHomePage.openStatsPage();
+        context.put("main",ramiLeviHomePage);
+        homePage = context.get("main");
+        context.print();
 
     }
     @When("I login with user '{}' and password '{}'")
@@ -61,21 +58,24 @@ public class LoginSteps {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         String userObject = ApiClient.serializeToJson(loginResponse.getData().getUser());
         String s ="{\"authuser\":{\"user\":" + userObject +"}}";
-        System.out.println("s" + s );
         jsExecutor.executeScript(String.format("window.localStorage.setItem('ramilevy','%s')",s));
         driver.navigate().refresh();
-
     }
 
     @Then("On Rami Levi Home page - '{}'")
+
     public void OnRamiLeviHomepageMurad(String firstName) throws InterruptedException {
 
-        RamiLeviHomePage ramiLeviHomePage = new RamiLeviHomePage(driver);
+//        RamiLeviHomePage ramiLeviHomePage = new RamiLeviHomePage(driver);
+        System.out.println("firstName" + firstName);
 
-        String currentText = ramiLeviHomePage.getLoginComponent().getLoginUserText(firstName);
+        String currentText = homePage.getLoginComponent().getLoginUserText(firstName);
 
         Assert.assertEquals(firstName, currentText);
+        Assert.assertEquals(firstName, currentText);
+
     }
+
 
 
 
