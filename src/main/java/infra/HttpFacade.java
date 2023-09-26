@@ -72,7 +72,7 @@ public class HttpFacade {
             System.out.println("status" +  response.getCode());
             System.out.println("respone" + result);
             JSONObject jsonObject = new JSONObject(result);
-            return new WrappHttpResponse(response.getCode(), null,  jsonObject);
+            return new WrappHttpResponse(response.getCode(), null,gson.fromJson(result, clz));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
