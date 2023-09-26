@@ -20,6 +20,7 @@ public class RamiLeviHomePage extends BasePage {
     }
 
 
+
     public void init() {
 
         this.loginComponent = new LoginComponent(this.driver);
@@ -42,9 +43,6 @@ public class RamiLeviHomePage extends BasePage {
         driver.get("https://www.rami-levy.co.il/he");
     }
 
-//    public void click_on_profile_icon(){
-//    profile_icon_button.click();
-//
-//    }
+
 
 }

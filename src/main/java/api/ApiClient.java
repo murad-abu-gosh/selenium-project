@@ -26,7 +26,7 @@ public class ApiClient {
     }
 
     public  static  WrappHttpResponse<Address> add_address (Address address){
-    String url ="https://api-prod.rami-levy.co.il/api/v2/site/clubs/addresses";
+        String url ="https://api-prod.rami-levy.co.il/api/v2/site/clubs/addresses";
 
         String requestBody = serializeToJson(address);
         System.out.println("requestBody" + requestBody);
