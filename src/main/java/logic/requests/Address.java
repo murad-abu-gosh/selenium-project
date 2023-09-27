@@ -4,37 +4,44 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
+import com.fasterxml.jackson.annotation.JsonProperty;
 @Data
 public class Address {
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("city_id")
     private int cityId;
 
+    @JsonProperty("street_id")
+    private int streetId;
+
+    @JsonProperty("city")
     private String city;
 
+    @JsonProperty("street")
     private String street;
 
+    @JsonProperty("street_number")
     private String streetNumber;
 
+    @JsonProperty("zip")
     private String zip;
 
+    @JsonProperty("apartment")
     private String apartment;
 
+    @JsonProperty("entrance")
     private String entrance;
 
+    @JsonProperty("floor")
     private String floor;
 
-    // Constructors, getters, and setters
-
-    // Default constructor
-    public Address() {}
-
-    // Parameterized constructor
-    public Address(String name, int cityId, String city, String street, String streetNumber, String zip, String apartment, String entrance, String floor) {
+    // Getters and setters (or you can generate them using your IDE)
+    public Address(String name, int cityId, int streetId, String city, String street, String streetNumber, String zip, String apartment, String entrance, String floor) {
         this.name = name;
         this.cityId = cityId;
+        this.streetId = streetId;
         this.city = city;
         this.street = street;
         this.streetNumber = streetNumber;
@@ -43,16 +50,12 @@ public class Address {
         this.entrance = entrance;
         this.floor = floor;
     }
-
-    // Getters and setters for the fields
-
-    // Other methods as needed
-
     @Override
     public String toString() {
         return "Address{" +
                 "name='" + name + '\'' +
                 ", cityId=" + cityId +
+                ", streetId=" + streetId +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
                 ", streetNumber='" + streetNumber + '\'' +
@@ -62,5 +65,4 @@ public class Address {
                 ", floor='" + floor + '\'' +
                 '}';
     }
-
 }

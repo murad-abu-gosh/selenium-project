@@ -3,10 +3,14 @@ package steps;
 import POM.RamiLeviHomePage;
 import api.ApiClient;
 import context.TestContext;
+import infra.WrappHttpResponse;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import logic.requests.Account;
 import logic.requests.Address;
+import logic.response.LoginResponse;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -33,9 +37,33 @@ public class AddAddressSteps {
 
     @When("I am now adding a new shipping address")
     public void iAmNowAddingANewShippingAddress() {
-        Address address = new Address(null, 157, "יקנעם עילית", "בס", "21", "", "2", null, "5");
-        ApiClient.add_address(address);
 
+        Address address = new Address(
+                null,
+                1259,
+                91988,
+                " באר שבע ",
+                " ביאליק ",
+                "51",
+                "8434105",
+                "1",
+                null,
+                "3"
+        );
+//        Address address = new Address(
+//                null,
+//                1259,
+//                91988,
+//                "Beer shva",
+//                "Bialek",
+//                "51",
+//                "8434105",
+//                "1",
+//                null,
+//                "3"
+//        );
+        ApiClient.add_address(address);
+        driver.navigate().refresh();
 
     }
 
