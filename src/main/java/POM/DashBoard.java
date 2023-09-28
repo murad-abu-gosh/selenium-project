@@ -23,6 +23,9 @@ public class DashBoard extends  BaseComponent{
     private WebElement Shipping_managment_button;
     private String  PROFILE_ICON_BUTTON ="login-user";
     private WebElement profile_icon_button;
+    private WebElement profile_dashboard;
+    private String PROFILE_DASHBOARD="dashboard";
+    //*[@id="dashboard"]
     public DashBoard(WebDriver driver) {
         super(driver);
 //        init();
@@ -34,7 +37,11 @@ public class DashBoard extends  BaseComponent{
         profile_icon_button = wait.until(ExpectedConditions.elementToBeClickable(By.id("login-user"))) ;
 
     }
-
+    public void click_profile_dashboard_button(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        profile_dashboard = wait.until(ExpectedConditions.elementToBeClickable(By.id(PROFILE_DASHBOARD))) ;
+        profile_dashboard.click();
+    }
 
     public void click_Shipping_managment_button(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
