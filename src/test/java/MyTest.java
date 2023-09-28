@@ -47,7 +47,7 @@ public class MyTest {
 //        Assert.assertTrue(elementIsExcite);
 //
 //        driver.navigate().refresh();
-//JAVA_TOOL_OPTIONS = -Dfile.encoding=UTF8JAVA_TOOL_OPTIONS = -Dfile.encoding=UTF8
+//
 //    }
 
 

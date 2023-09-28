@@ -18,6 +18,8 @@ public class ShippingAddressManagment extends BasePage {
         init();
     }
 
+
+
     @Override
     public void init() {
     My_address = waitFunction(By.xpath(MY_ADDRESS));

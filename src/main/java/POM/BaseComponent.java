@@ -26,11 +26,11 @@ abstract public class BaseComponent {
 
     public void setDropDown(String value , By locator) {
 
-    if(value != null) {
-        WebElement keywords_options = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
-        Select select1 = new Select(keywords_options);
-        select1.selectByValue(value);
-    }
+        if(value != null) {
+            WebElement keywords_options = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
+            Select select1 = new Select(keywords_options);
+            select1.selectByValue(value);
+        }
 
     }
 
@@ -44,4 +44,3 @@ abstract public class BaseComponent {
     }
 
 }
-
