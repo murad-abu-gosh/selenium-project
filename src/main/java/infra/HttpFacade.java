@@ -42,13 +42,11 @@ public class HttpFacade {
                     }
                 }
                 System.out.println("HTTPfacade ==="+requestBody);
-                StringEntity requestEntity = new StringEntity(requestBody, ContentType.parse("UTF-8"));
-                System.out.println(requestEntity.getContentEncoding());
-                request.setEntity(requestEntity);
+//                StringEntity requestEntity = new StringEntity(requestBody, ContentType.parse("UTF-8"));
+//                request.setEntity(requestEntity);
                 System.out.println("Entity--------- "+requestBody.toString());
-//                request.setEntity(new StringEntity(requestBody));
+                request.setEntity(new StringEntity(requestBody));
                 response = httpClient.execute(request);
-//                response.setHeader("Content-Type", "application/json; charset=UTF-8");
 
             } else if (method == HttpMethod.PATCH) {
 
@@ -64,6 +62,15 @@ public class HttpFacade {
                 HttpDelete request = new HttpDelete(URL);
                 response = httpClient.execute(request);
 
+            } else if (method == HttpMethod.PUT) {
+                HttpPut request = new HttpPut(URL);
+                if (headers != null) {
+                    for (Map.Entry<String, String> header : headers.entrySet()) {
+                        request.addHeader(header.getKey(), header.getValue());
+                    }
+                }
+                request.setEntity(new StringEntity(requestBody));
+                response = httpClient.execute(request);
             }
 
             HttpEntity entity = response.getEntity();

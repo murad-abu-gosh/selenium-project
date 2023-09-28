@@ -50,19 +50,28 @@ public class ApiClient {
 
 
     public  static  WrappHttpResponse<Profile> update_profile (Profile profile){
-        String url ="https://api-prod.rami-levy.co.il/api/v2/site/clubs/addresses";
+        String url ="https://api-prod.rami-levy.co.il/api/v2/site/clubs/customer/889369";
         Map <String,String> headers = new HashMap<>();
         headers.put("Accept","application/json, text/plain, */*");
         headers.put("Accept-Encoding","gzip, deflate, br");
-        headers.put("Accept-Language","he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7");
+//        headers.put("Accept-Language","he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7");
         headers.put("Authorization","Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIxNzE5ZDM2NzI0OGYyZDAwY2RkMThmM2U5ZmJhNGYxYTU1OTRkYjZlYjI3ODY4ZTlmZmJhNWI0YTdmNTc2Y2IwNDg3N2FiNjY1ODMwYWNjIn0.eyJhdWQiOiIzIiwianRpIjoiMjE3MTlkMzY3MjQ4ZjJkMDBjZGQxOGYzZTlmYmE0ZjFhNTU5NGRiNmV$");
-        headers.put("Content-Type", "application/json; charset=UTF-8");
+        headers.put("Content-Type", "application/json;charset=UTF-8");
         headers.put("Ecomtoken","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLXByb2QucmFtaS1sZXZ5LmNvLmlsIiwiYXVkIjoiaHR0cHM6XC9cL2FwaS1wcm9kLnJhbWktbGV2eS5jby5pbCIsImlhdCI6MTY5NTgzNDc0OSwibmJmIjoxNjk1ODM0ODA5LCJleHAiOjE2OTU5MjExNDksImlkIjo4ODkzNjksImVtYWlsIjoiYWFhYWFAZ21haWwuY29tIiwiY2lkIjoiOTkwMDE1NDc1OTMifQ.B_6VIazpHRO9mJHnFFfUXenBIxu1pr88FJbFd_Y76d8");
 //        headers.put("Locale","he");
 
 
         String requestBody = serializeToJson(profile);
-        System.out.println("requestBody" + requestBody);
+//        System.out.println("requestBody 11" + requestBody);
+
+//        String requestBody="{\"last_name\": \"Elevationx\"," +
+//                "\"phone\": \"020-2002023\"," +
+//                "  \"additional_phone\": null," +
+//                "  \"sex_id\": \"3\"," +
+//                "  \"birth_date\": null" +
+//                "}";
+//        System.out.println("requestBody 22" + requestBody);
+
         return HttpFacade.makeHttpRequest( Profile.class, url,headers, HttpMethod.PUT ,requestBody);
     }
 
