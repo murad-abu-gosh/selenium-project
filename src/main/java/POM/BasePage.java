@@ -24,4 +24,10 @@ public abstract class BasePage {
 
     }
 
+    public void clickButton(By locator){
+        WebElement button = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
+        button.click();
+    }
+
 }
+

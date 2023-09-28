@@ -3,10 +3,12 @@ package steps;
 import context.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Hooks {
+    @Getter
     private WebDriver driver;
     private TestContext context;
     public Hooks(TestContext context){
@@ -27,7 +29,4 @@ public class Hooks {
         }
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
 }
