@@ -3,6 +3,7 @@ package steps;
 import POM.CartComponent;
 import POM.SearchBarComponent;
 import POM.SearchPage;
+import api.CartApi;
 import context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -37,6 +38,11 @@ public class CartSteps {
         driver.navigate().refresh();
         cartComponent.executeEmptyCartSequence();
         Assume.assumeTrue("Cart is empty", cartComponent.isCartEmpty());
+    }
+
+    @Given("The cart is cleared")
+    public void theCartIsCleared(){
+        CartApi.emptyCart();
     }
 
     @When("I click on plus button {int} times for item index {int}")

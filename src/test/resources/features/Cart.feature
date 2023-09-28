@@ -1,8 +1,8 @@
 Feature: Cart feature for adding items and clearing cart
   Background:
-    Given I have navigated to Rami Levi
+    Given The cart is cleared
+    And I have navigated to Rami Levi
     When  I login with user 'aaaaa@gmail.com' and password 'muradelevation123'
-    And I empty the cart
 
     Scenario: Add multiple items to cart
       When I type 'bamba' in search bar
