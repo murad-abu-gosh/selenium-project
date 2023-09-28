@@ -20,7 +20,7 @@ public class CartApi extends ApiClient{
         headers.put("Authorization", auth);
         headers.put("Ecomtoken", ecomToken);
         // Send the request
-        HttpFacade.makeHttpRequest(Account.class, url, HttpMethod.POST, emptyBodyRequest);
+        HttpFacade.makeHttpRequest(Account.class, url, headers, HttpMethod.POST, emptyBodyRequest);
     }
 
 
@@ -29,7 +29,7 @@ public class CartApi extends ApiClient{
         Map<String, String> headers = new HashMap<>();
         headers.put("Authorization", auth);
         headers.put("Ecomtoken", ecomToken);
-        HttpFacade.makeHttpRequest(Account.class, url, HttpMethod.POST, bambaBodyRequest);
+        HttpFacade.makeHttpRequest(Account.class, url, headers, HttpMethod.POST, bambaBodyRequest);
     }
 
     public static void main(String[] args) {
