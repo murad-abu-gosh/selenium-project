@@ -9,14 +9,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class BaseComponent {
+abstract public class BaseComponent {
 
-    private WebDriver driver;
+    protected WebDriver driver;
     public BaseComponent(WebDriver driver) {
         this.driver = driver;
 
     }
-    
+    abstract public void init();
+
 
     public void setInputValue(String value , By locator) {
         WebElement Input = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -25,11 +26,11 @@ public class BaseComponent {
 
     public void setDropDown(String value , By locator) {
 
-    if(value != null) {
-        WebElement keywords_options = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
-        Select select1 = new Select(keywords_options);
-        select1.selectByValue(value);
-    }
+        if(value != null) {
+            WebElement keywords_options = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
+            Select select1 = new Select(keywords_options);
+            select1.selectByValue(value);
+        }
 
     }
 
@@ -37,6 +38,9 @@ public class BaseComponent {
         WebElement button = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
         button.click();
     }
+    public WebElement waitFunction(By ele) {
+        return new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.presenceOfElementLocated(ele));
+
+    }
 
 }
-
