@@ -57,10 +57,6 @@ public class CartComponent extends BaseComponent{
         return !driver.findElements(emptyCartDiv).isEmpty();
     }
 
-    public void addItemsToCart(){
-        HttpFacade.makeHttpRequest(JSONObject.class, "https://www.rami-levy.co.il/api/v2/cart", HttpMethod.POST, "{\"store\":331,\"isClub\":0,\"supplyAt\":\"2023-09-21T16:22:33.754Z\",\"items\":{\"292\":\"1.00\"},\"meta\":null}");
-    }
-
     public int getCartItemsCount() {
         return Integer.parseInt(driver.findElement(cartBadge).getText());
 

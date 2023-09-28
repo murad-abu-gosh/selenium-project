@@ -61,4 +61,10 @@ public class CartSteps {
     public void cartIsEmpty() {
         Assertions.assertTrue(cartComponent.isCartEmpty());
     }
+
+    @Given("I have bamba in cart")
+    public void iHaveBambaInCart() {
+        CartApi.addBambaToCart();
+        driver.navigate().refresh();
+    }
 }

@@ -13,8 +13,9 @@ Feature: Cart feature for adding items and clearing cart
       Then I have 3 items in cart
 
     Scenario: Empty cart after adding items
-      When I type 'bamba' in search bar
-      And I click on show all results button
-      And I click on plus button 1 times for item index 0
+      Given I have bamba in cart
+#      When I type 'bamba' in search bar
+#      And I click on show all results button
+#      And I click on plus button 1 times for item index 0
       And I empty the cart
       Then Cart is empty
