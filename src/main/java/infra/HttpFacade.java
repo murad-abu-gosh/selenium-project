@@ -36,6 +36,8 @@ public class HttpFacade {
                 HttpPost request = new HttpPost(URL);
                 request.setHeader("accept", "application/json");
                 request.setHeader("Content-Type", "application/json");
+//                request.setHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIxNzE5ZDM2NzI0OGYyZDAwY2RkMThmM2U5ZmJhNGYxYTU1OTRkYjZlYjI3ODY4ZTlmZmJhNWI0YTdmNTc2Y2IwNDg3N2FiNjY1ODMwYWNjIn0.eyJhdWQiOiIzIiwianRpIjoiMjE3MTlkMzY3MjQ4ZjJkMDBjZGQxOGYzZTlmYmE0ZjFhNTU5NGRiNmV$");
+                request.setHeader("Ecomtoken", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLXByb2QucmFtaS1sZXZ5LmNvLmlsIiwiYXVkIjoiaHR0cHM6XC9cL2FwaS1wcm9kLnJhbWktbGV2eS5jby5pbCIsImlhdCI6MTY5NTkwNzMzMiwibmJmIjoxNjk1OTA3MzkyLCJleHAiOjE2OTU5OTM3MzIsImlkIjo4ODkzNjksImVtYWlsIjoiYWFhYWFAZ21haWwuY29tIiwiY2lkIjoiOTkwMDE1NDc1OTMifQ.n2s6LeGU27F_QuZT5MZEAF16zI9EqdTIJ2wIxSV7Wtc");
                 request.setEntity(new StringEntity(requestBody));
                 response = httpClient.execute(request);
             } else if (method == HttpMethod.PATCH) {
@@ -47,6 +49,10 @@ public class HttpFacade {
 
             } else if (method == HttpMethod.DELETE) {
                 HttpDelete request = new HttpDelete(URL);
+                request.setHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIxNzE5ZDM2NzI0OGYyZDAwY2RkMThmM2U5ZmJhNGYxYTU1OTRkYjZlYjI3ODY4ZTlmZmJhNWI0YTdmNTc2Y2IwNDg3N2FiNjY1ODMwYWNjIn0.eyJhdWQiOiIzIiwianRpIjoiMjE3MTlkMzY3MjQ4ZjJkMDBjZGQxOGYzZTlmYmE0ZjFhNTU5NGRiNmV$");
+                request.setHeader("Ecomtoken", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLXByb2QucmFtaS1sZXZ5LmNvLmlsIiwiYXVkIjoiaHR0cHM6XC9cL2FwaS1wcm9kLnJhbWktbGV2eS5jby5pbCIsImlhdCI6MTY5NTc1MjI0OSwibmJmIjoxNjk1NzUyMzA5LCJleHAiOjE2OTU4Mzg2NDksImlkIjo4ODkzNjksImVtYWlsIjoiYWFhYWFAZ21haWwuY29tIiwiY2lkIjoiOTkwMDE1NDc1OTMifQ.5Ulu880_H6KrX1wOhRjpPEStPQ0pI2Yg4kA7ESUUWlo");
+
+
                 response = httpClient.execute(request);
 
             }
