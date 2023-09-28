@@ -8,6 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import logic.requests.Address;
+import logic.requests.Profile;
 import org.openqa.selenium.WebDriver;
 
 public class UpdateProfile {
@@ -76,12 +77,17 @@ public class UpdateProfile {
 //        homePage= new RamiLeviHomePage(driver);
         homePage = context.get("main");
         homePage.getDashBoard().click_on_profile_icon();
-        homePage.getDashBoard().click_Shipping_managment_button();
+        homePage.getDashBoard().click_profile_dashboard_button();
         driver.get("https://www.rami-levy.co.il/he/dashboard");
     }
 
     @When("I am updating the profile data {string} ,{string},{string},{string},{string},{string}")
-    public void iAmUpdatingTheProfileData(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5) {
+    public void iAmUpdatingTheProfileData(String first_name, String last_name, String phone, String additional_phone, String sex_id, String birth_date) {
+        Profile profile =new Profile( first_name, last_name, phone, additional_phone, sex_id, birth_date);
+        ApiClient.update_profile(profile);
+        driver.navigate().refresh();
+
+
     }
 
     @Then("On the profile dashboard")

@@ -11,3 +11,5 @@ Feature: Change the profile data using API request and check if the data was upd
         When  I am updating the profile data "<first_name>" ,"<last_name>","<phone>","<additional_phone>","<sex_id>","<birth_date>"
         Then On the profile dashboard
         Examples:
+        |first_name|last_name|phone|additional_phone|sex_id|birth_date|
+        |   Murad  |Elevation|020-2002024|null|  1    |null|
