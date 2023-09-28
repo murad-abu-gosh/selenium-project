@@ -36,7 +36,9 @@ public class LoginSteps {
     private TestContext context;
     private RamiLeviHomePage homePage;
 
-public LoginSteps(TestContext context) {
+    private  WrappHttpResponse<LoginResponse> loginResponse;
+
+    public LoginSteps(TestContext context) {
     this.context=context;
     this.driver =context.get("driver");
 }
@@ -54,7 +56,7 @@ public LoginSteps(TestContext context) {
     @When("I login with user '{}' and password '{}'")
     public void OnRamiLeviHomePageIClickLogin(String user , String password) throws IOException {
         Account account = new Account(user , password , false , null);
-        WrappHttpResponse<LoginResponse> loginResponse = ApiClient.login(account);
+        loginResponse = ApiClient.login(account);
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         String userObject = ApiClient.serializeToJson(loginResponse.getData().getUser());
         String s ="{\"authuser\":{\"user\":" + userObject +"}}";
@@ -66,12 +68,10 @@ public LoginSteps(TestContext context) {
 
     public void OnRamiLeviHomepageMurad(String firstName) throws InterruptedException {
 
-//        RamiLeviHomePage ramiLeviHomePage = new RamiLeviHomePage(driver);
-        System.out.println("firstName" + firstName);
 
         String currentText = homePage.getLoginComponent().getLoginUserText(firstName);
 
-        Assert.assertEquals(firstName, currentText);
+        Assert.assertEquals(loginResponse.getStatus() , 200);
         Assert.assertEquals(firstName, currentText);
 
     }
