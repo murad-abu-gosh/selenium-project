@@ -36,11 +36,7 @@ public class Hooks {
         driver.manage().window().maximize();
         context.put("driver",this.driver);
     }
-@AfterTest
-public void AfterMethod(ITestResult ITestResult){
-    ScreenshotAndLogsCapture capture = new ScreenshotAndLogsCapture(driver);
-    capture.takeScreenshotAndLogs(ITestResult);
-}
+
 
     @After
     public void tearDown(Scenario scenario) {
@@ -66,7 +62,7 @@ public void AfterMethod(ITestResult ITestResult){
     public void tearDown() {
 
         if (driver != null) {
-//            driver.quit();
+            driver.quit();
         }
 
     }

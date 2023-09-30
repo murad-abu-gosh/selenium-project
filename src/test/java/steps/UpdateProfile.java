@@ -68,6 +68,10 @@ public class UpdateProfile {
 //        System.out.println(context.get("sex_id").toString());
 //        System.out.println(context.get("birth_date").toString());
 
+        // Required data
+        Assert.assertNotNull(dashboard.getFirstName());
+        Assert.assertNotNull(dashboard.getLastName());
+        Assert.assertNotNull(dashboard.getPhone());
 
         //data validation
         Assert.assertEquals(context.get("first_name"),dashboard.getFirstName());
@@ -76,10 +80,7 @@ public class UpdateProfile {
         Assert.assertEquals(context.get("additional_phone"),dashboard.getAdditionalPhone());
         Assert.assertEquals(context.get("sex_id"),dashboard.selected_gender());
         Assert.assertEquals(context.get("birth_date"),dashboard.getBirthDate());
-        // Required data
-        Assert.assertNotNull(dashboard.getFirstName());
-        Assert.assertNotNull(dashboard.getLastName());
-        Assert.assertNotNull(dashboard.getPhone());
+
 
     }
 }

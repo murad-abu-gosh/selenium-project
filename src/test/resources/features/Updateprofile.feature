@@ -13,7 +13,7 @@ Feature: Change the profile data using API request and check if the data was upd
 
         Examples:
         |first_name|last_name|phone|additional_phone|sex_id|birth_date|
-#        |   Alpha  |Elevation x|020-2002021|  055-1122334  | 3 | 2000-04-28|
+        |   Alpha  |Elevation x|020-2002021|  055-1122334  | 3 | 2000-04-28|
         |   Murad  |Elevation|020-2002024|null| 1|null|
 
 

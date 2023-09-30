@@ -20,7 +20,7 @@ public class ApiClient {
         Map <String,String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json, text/plain, */*n; charset=UTF-8");
         headers.put("Accept","application/json, text/plain, */*");
-
+        headers.put("Authorization","Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIxNzE5ZDM2NzI0OGYyZDAwY2RkMThmM2U5ZmJhNGYxYTU1OTRkYjZlYjI3ODY4ZTlmZmJhNWI0YTdmNTc2Y2IwNDg3N2FiNjY1ODMwYWNjIn0.eyJhdWQiOiIzIiwianRpIjoiMjE3MTlkMzY3MjQ4ZjJkMDBjZGQxOGYzZTlmYmE0ZjFhNTU5NGRiNmV$");
 
 
         // Serialize restaurant object to JSON

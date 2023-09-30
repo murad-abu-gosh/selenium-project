@@ -96,7 +96,7 @@ public class HttpFacade {
         try {
 
             System.out.println("status" +  response.getCode());
-            System.out.println("respone" + result);
+            System.out.println("response" + result);
             if(result.isEmpty()){
                 result ="{}";
             }
