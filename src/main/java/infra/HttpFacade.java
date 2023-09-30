@@ -49,12 +49,6 @@ public class HttpFacade {
 //                request.setEntity(requestEntity);
                 System.out.println("Entity--------- "+requestBody.toString());
                 request.setEntity(new StringEntity(requestBody));
-                System.out.println("HTTPfacade ===" + requestBody);
-                StringEntity requestEntity = new StringEntity(requestBody, ContentType.parse("UTF-8"));
-                System.out.println(requestEntity.getContentEncoding());
-                request.setEntity(requestEntity);
-                System.out.println("Entity--------- " + requestBody.toString());
-//                request.setEntity(new StringEntity(requestBody));
                 response = httpClient.execute(request);
 //                response.setHeader("Content-Type", "application/json; charset=UTF-8");
 
@@ -89,9 +83,7 @@ public class HttpFacade {
             result = EntityUtils.toString(entity);
         } catch (IOException | ParseException e) {
             throw new RuntimeException(e);
-        } catch (ProtocolException e) {
-            throw new RuntimeException(e);
-        } finally {
+        }  finally {
             if (response != null) {
                 try {
                     response.close();
@@ -109,10 +101,6 @@ public class HttpFacade {
             System.out.println("response" + result);
             if(result.isEmpty()){
                 result ="{}";
-            System.out.println("status" + response.getCode());
-            System.out.println("respone" + result);
-            if (result.isEmpty()) {
-                result = "{}";
             }
             JSONObject jsonObject = new JSONObject(result);
 
