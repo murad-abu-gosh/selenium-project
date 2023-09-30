@@ -16,11 +16,11 @@ public class TestContext {
 
     public <T> T get(String key){
         Object item = map.get(key);
-        if(item!=null){
+//        if(item!=null){
             return (T)item;
-        }else{
-            throw new IllegalArgumentException("Item not found in context");
-        }
+//        }else{
+//            throw new IllegalArgumentException("Item not found in context");
+//        }
     }
     public void put(String key, Object item){
         map.put(key,item);

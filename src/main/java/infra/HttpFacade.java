@@ -44,12 +44,11 @@ public class HttpFacade {
                         request.addHeader(header.getKey(), header.getValue());
                     }
                 }
-                System.out.println("HTTPfacade ===" + requestBody);
-                StringEntity requestEntity = new StringEntity(requestBody, ContentType.parse("UTF-8"));
-                System.out.println(requestEntity.getContentEncoding());
-                request.setEntity(requestEntity);
-                System.out.println("Entity--------- " + requestBody.toString());
-//                request.setEntity(new StringEntity(requestBody));
+                System.out.println("HTTPfacade ==="+requestBody);
+//                StringEntity requestEntity = new StringEntity(requestBody, ContentType.parse("UTF-8"));
+//                request.setEntity(requestEntity);
+                System.out.println("Entity--------- "+requestBody.toString());
+                request.setEntity(new StringEntity(requestBody));
                 response = httpClient.execute(request);
 //                response.setHeader("Content-Type", "application/json; charset=UTF-8");
 
@@ -67,6 +66,15 @@ public class HttpFacade {
                 HttpDelete request = new HttpDelete(URL);
                 response = httpClient.execute(request);
 
+            } else if (method == HttpMethod.PUT) {
+                HttpPut request = new HttpPut(URL);
+                if (headers != null) {
+                    for (Map.Entry<String, String> header : headers.entrySet()) {
+                        request.addHeader(header.getKey(), header.getValue());
+                    }
+                }
+                request.setEntity(new StringEntity(requestBody));
+                response = httpClient.execute(request);
             }
 
             HttpEntity entity = response.getEntity();
@@ -75,9 +83,7 @@ public class HttpFacade {
             result = EntityUtils.toString(entity);
         } catch (IOException | ParseException e) {
             throw new RuntimeException(e);
-        } catch (ProtocolException e) {
-            throw new RuntimeException(e);
-        } finally {
+        }  finally {
             if (response != null) {
                 try {
                     response.close();
@@ -91,10 +97,10 @@ public class HttpFacade {
         Gson gson = new Gson();
         try {
 
-            System.out.println("status" + response.getCode());
-            System.out.println("respone" + result);
-            if (result.isEmpty()) {
-                result = "{}";
+            System.out.println("status" +  response.getCode());
+            System.out.println("response" + result);
+            if(result.isEmpty()){
+                result ="{}";
             }
             JSONObject jsonObject = new JSONObject(result);
 
