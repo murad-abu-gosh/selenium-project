@@ -1,4 +1,3 @@
-
 Feature: Change the profile data using API request and check if the data was updated using Selenium
 
     Background:

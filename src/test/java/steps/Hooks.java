@@ -19,37 +19,38 @@ public class Hooks {
     private TestContext context;
     private Scenario scenario;
 
-    public Hooks(TestContext context){
-        this.context=context;
+    public Hooks(TestContext context) {
+        this.context = context;
     }
+
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        context.put("driver",this.driver);
+        context.put("driver", this.driver);
     }
 
 
-    @After
-    public void tearDown(Scenario scenario) {
-        this.scenario = scenario;
-        if (driver != null) {
-            if (scenario.isFailed()) {
-                captureScreenshot(scenario.getName());
-            }
-            driver.quit();
-        }
-    }
+//    @After
+//    public void tearDown(Scenario scenario) {
+//        this.scenario = scenario;
+//        if (driver != null) {
+//            if (scenario.isFailed()) {
+//                captureScreenshot(scenario.getName());
+//            }
+//            driver.quit();
+//        }
+//    }
 
-    private void captureScreenshot(String screenshotName) {
-        try {
-            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", screenshotName);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void captureScreenshot(String screenshotName) {
+//        try {
+//            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(screenshot, "image/png", screenshotName);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @After
     public void tearDown() {
