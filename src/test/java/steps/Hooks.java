@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Hooks {
+    @Getter
     private WebDriver driver;
     private TestContext context;
     private Scenario scenario;
