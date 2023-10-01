@@ -45,28 +45,23 @@ public class UpdateProfile {
         response= ApiClient.update_profile(profile);
         driver.navigate().refresh();
 
-        context.put("first_name",first_name);
-        context.put("last_name",last_name);
-        context.put("phone",phone);
-        context.put("additional_phone",additional_phone);
-        context.put("sex_id",sex_id);
-        context.put("birth_date",birth_date);
-
 
     }
 
-    @Then("On the profile dashboard")
-    public void onTheProfileDashboard() {
+
+    @Then("On the profile dashboard page check the entered data if available {string} ,{string},{string},{string},{string},{string}")
+    public void onTheProfileDashboardPageCheckTheEnteredData(String first_name, String last_name, String phone, String additional_phone, String sex_id, String birth_date) {
+        if (first_name.equals("null") ) first_name = null;
+        if (last_name.equals("null") ) last_name =null;
+        if (phone.equals("null") ) phone =null;
+        if (additional_phone.equals("null") ) additional_phone =null;
+        if (sex_id.equals("null") ) sex_id =null;
+        if (birth_date.equals("null") ) birth_date =null;
+
         Profile_Dashboard dashboard =new Profile_Dashboard(driver);
         dashboard.print();
         //response code validation
         Assert.assertEquals(response.getStatus(),200);
-//        System.out.println(context.get("first_name"));
-//        System.out.println(context.get("last_name").toString());
-//        System.out.println(context.get("phone").toString());
-//        System.out.println(context.get("additional_phone").toString());
-//        System.out.println(context.get("sex_id").toString());
-//        System.out.println(context.get("birth_date").toString());
 
         // Required data
         Assert.assertNotNull(dashboard.getFirstName());
@@ -74,13 +69,16 @@ public class UpdateProfile {
         Assert.assertNotNull(dashboard.getPhone());
 
         //data validation
-        Assert.assertEquals(context.get("first_name"),dashboard.getFirstName());
-        Assert.assertEquals(context.get("last_name"),dashboard.getLastName());
-        Assert.assertEquals(context.get("phone"),dashboard.getPhone());
-        Assert.assertEquals(context.get("additional_phone"),dashboard.getAdditionalPhone());
-        Assert.assertEquals(context.get("sex_id"),dashboard.selected_gender());
-        Assert.assertEquals(context.get("birth_date"),dashboard.getBirthDate());
-
+        Assert.assertEquals(first_name,dashboard.getFirstName());
+        Assert.assertEquals(last_name,dashboard.getLastName());
+        Assert.assertEquals(phone,dashboard.getPhone());
+        Assert.assertEquals(additional_phone,dashboard.getAdditionalPhone());
+        Assert.assertEquals(sex_id,dashboard.selected_gender());
+        Assert.assertEquals(birth_date,dashboard.getBirthDate());
 
     }
+
+
+
+
 }
