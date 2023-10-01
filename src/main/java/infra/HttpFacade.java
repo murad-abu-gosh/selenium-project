@@ -27,7 +27,7 @@ public class HttpFacade {
     //makeHttpRequest: It's a generic method that send Http requests to our Api using specific URL
     //  requestBody that contains the body of request
     public static <T> WrappHttpResponse<T> makeHttpRequest(Class<T> clz, String URL, Map<String, String> headers, HttpMethod method, String requestBody) {
-        String result = null;
+        String result;
         CloseableHttpResponse response = null;
         HttpUriRequestBase request = null;
         switch (method) {
