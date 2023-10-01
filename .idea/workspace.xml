@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09f2f619-5677-42c3-ae0f-013a801aa771" name="Changes" comment="ok">
+    <list default="true" id="09f2f619-5677-42c3-ae0f-013a801aa771" name="Changes" comment="code cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/steps/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Cart.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/ResetPassowrds.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/ResetPassowrds.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Updateprofile.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Updateprofile.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/POM/LoginComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/LoginComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/infra/HttpFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infra/HttpFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +28,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="2VcbOjWO0nLZG4sheueb7sDK5rE" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -41,6 +42,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
@@ -255,6 +257,15 @@
       <option name="presentableId" value="Default" />
       <updated>1695138285443</updated>
     </task>
+    <task id="LOCAL-00001" summary="code cleanup">
+      <option name="closed" value="true" />
+      <created>1696083691428</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696083691428</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,7 +282,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="code cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
