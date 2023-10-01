@@ -3,7 +3,7 @@ Feature: Rami levi feature
     Given I have navigated to Rami Levi
     When  I login with user 'khaledidkidk@gmail.com' and password 'Zxasqw12--IDK'
 
-
+  @ResetPasswordTest
   Scenario: Reset password
     Given On Rami Levi home page - I click on 'אדקידק' profile
     And On login popup - I click on  dashboard page

@@ -19,7 +19,7 @@ import java.io.IOException;
 public class ResetSteps {
 
     private TestContext context;
-    private RamiLeviHomePage homePage;
+    private static RamiLeviHomePage homePage;
     private WebDriver driver;
     public ResetSteps(TestContext context){
         this.context=context;
@@ -33,14 +33,14 @@ public class ResetSteps {
         homePage.getLoginComponent().clickOnProfile();
     }
     @And("On login popup - I click on  dashboard page")
-    public void onLoginPopupIClickOnDashboardPage() {
+    public static void onLoginPopupIClickOnDashboardPage() {
 
         homePage.getLoginComponent().clickOnDashboard();
     }
 
 
     @When("On dashboard page - click on reset password")
-    public void onDashboardPageClickOnResetPassword() {
+    public static void onDashboardPageClickOnResetPassword() {
         homePage.getDashBoard().click_on_reset_password();
     }
 
@@ -53,7 +53,7 @@ public class ResetSteps {
     }
 
     @And("On reset password popup - I change {string} to {string}")
-    public void onResetPasswordPopupIChangeMuradelevationTo(String  oldPass, String newPass) {
+    public static void onResetPasswordPopupIChangeMuradelevationTo(String oldPass, String newPass) {
         homePage.getDashBoard().write_on_old_password_input(oldPass);
         homePage.getDashBoard().write_on_password_input(newPass);
         homePage.getDashBoard().write_on_confirm_password_input(newPass);
