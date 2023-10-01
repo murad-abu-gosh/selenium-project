@@ -98,7 +98,7 @@ public class HttpFacade {
             }
             JSONObject jsonObject = new JSONObject(result);
 
-            return new WrappHttpResponse(response.getCode(), null, gson.fromJson(result, clz));
+            return new WrappHttpResponse<>(response.getCode(), null, gson.fromJson(result, clz));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

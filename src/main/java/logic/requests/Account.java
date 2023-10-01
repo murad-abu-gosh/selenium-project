@@ -8,15 +8,16 @@ public class Account {
     private boolean restore_account ;
 
     private String id_delivery_times ;
+    private String recaptcha;
 
 
 
-
-    public Account (String email , String password, boolean restore_account ,  String id_delivery_times ){
+    public Account (String email , String password, boolean restore_account  , String id_delivery_times ){
         this.username = email;
         this.password = password;
         this.restore_account = restore_account;
         this.id_delivery_times = id_delivery_times;
+
 
     }
 
@@ -51,5 +52,13 @@ public class Account {
 
     public void setId_delivery_times(String id_delivery_times) {
         this.id_delivery_times = id_delivery_times;
+    }
+
+    public String getRecaptcha() {
+        return recaptcha;
+    }
+
+    public void setRecaptcha(String recaptcha) {
+        this.recaptcha = recaptcha;
     }
 }

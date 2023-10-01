@@ -39,7 +39,7 @@ public class SearchBarComponent extends BaseComponent {
     }
 
     public void waitPageLoad(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(By.id("min-height-product-0")));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.id("min-height-product-0")));
     }
 
 

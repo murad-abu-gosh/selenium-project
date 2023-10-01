@@ -23,13 +23,14 @@ public class ApiClient {
 
     public static WrappHttpResponse<LoginResponse> login(Account account) throws IOException {
         String url = "https://api-prod.rami-levy.co.il/api/v2/site/auth/login";
-        Map<String, String> headers = new HashMap<>();
+         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json, text/plain, */*n; charset=UTF-8");
         headers.put("Accept", "application/json, text/plain, */*");
 
 
         // Serialize restaurant object to JSON
         String requestBody = serializeToJson(account);
+
         System.out.println("requestBody" + requestBody);
 
         // Send the request

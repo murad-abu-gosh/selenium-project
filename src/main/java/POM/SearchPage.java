@@ -53,7 +53,7 @@ public class SearchPage extends BasePage {
     private void hoverOverItem(int itemIndex) {
         By productBox = By.xpath("//*[@id=\"min-height-product-X\"]".replace("X", String.valueOf(itemIndex)));
 
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(productBox));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(productBox));
 
 //        wait1();
         WebElement itemBox = driver.findElement(productBox);
