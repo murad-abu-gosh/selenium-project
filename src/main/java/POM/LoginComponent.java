@@ -12,9 +12,6 @@ public class LoginComponent extends BaseComponent{
     private final By PROFILE_ICON = By.xpath("//*[@id=\"login-user\"]/div/div");
     private final By DASHBOARD = By.xpath(" //*[@id=\"dashboard\"]");
 
-    //*[@id="__layout"]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[4]/div[2]
-    //*[@id=\"login-user\"]/div/div/div[2]/div/span"
-
     public LoginComponent(WebDriver driver) {
         super(driver);
 

@@ -1,5 +1,3 @@
-
-
 Feature: Rami levi feature
   Background:
     Given I have navigated to Rami Levi
